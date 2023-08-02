@@ -102,12 +102,11 @@ function step1(cb) {
   - You must console.log the last line of the output, `FINISHED`, after `step3` has "finished".
   */
  
-  function finished () {
-    setTimeout(() => {console.log('FINISHED'), 1000});
-  }
-  function showMsg () {
-    step1(step2);
-    step3(finished);
- }
- showMsg();
+step1(function() {
+  step2(function () {
+    step3(function() {
+      console.log('FINISHED');
+    })
+  })
+})
 
